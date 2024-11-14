@@ -20,9 +20,9 @@ public class Timer implements Runnable {
 	@Override
 	public void run() {
 		while(isRun) {
-			if(InputManager.getInput().equals("q"))
+			if(InputManager.getInput().toString().equals("q"))
 				break;
-			else if(!InputManager.getInput().equals("h")) {
+			else if(!InputManager.getInput().toString().equals("h")) {
 				buffer.setLength(0);
 				buffer.append(sdf.format(System.currentTimeMillis()));
 				buffer.append(String.format(" [%3d sec]\n", ++ sec));

@@ -12,9 +12,9 @@ public class InputManager implements Runnable {
 	
 	private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-	private static String input = "";
+	private static StringBuffer input = new StringBuffer();
 	
-	public static String getInput() {
+	public static StringBuffer getInput() {
 		return input;
 	}
 	
@@ -25,9 +25,10 @@ public class InputManager implements Runnable {
 				buffer.setLength(0);
 				buffer.append(reader.readLine());
 				
-				input = buffer.toString();
+				input.setLength(0);
+				input.append(buffer);
 				
-				if(input.equals("q"))
+				if(input.toString().equals("q"))
 					isRun = false;
 			} catch (IOException e) {
 				e.printStackTrace();
